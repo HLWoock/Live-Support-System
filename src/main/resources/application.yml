@@ -1,0 +1,33 @@
+server:
+  port: ${PORT:8100}
+  
+info:
+  live-support: ok
+  creator: Dipl.-Ing Hermann Woock
+  date: 05.03.2020
+  systems: wappon, navigation
+  
+
+spring:
+  application:
+    name: live-support
+
+management:
+  endpoints:
+    enabled-by-default: true
+    web:
+      exposure:
+        include: 
+        - "*" 
+        - hystrix.stream
+      base-path: /actuator
+  endpoint:
+    health:
+      show-details: always  
+      
+logging:
+  level:
+    root: error
+    de.woock: debug
+    org.springframework.cloud: debug
+  
